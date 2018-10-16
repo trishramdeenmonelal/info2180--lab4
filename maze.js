@@ -6,8 +6,8 @@ window.onload= function(){
 
 
 	function changeColour(){
-		x.classList.add("youlose");
-	alert("you lose");
+		x.classList.toggle("youlose");
+		alert("you lose");
 	}
 
 }
