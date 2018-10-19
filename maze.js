@@ -14,13 +14,13 @@ window.onload= function(){
 
 
 	
-	//changes border 1
+	//Exercise 1
 	function changeColour(){
 		border1.classList.add("youlose");
 		alert("you lose");	
 	}
 	
-	//changesallborders upon contact
+	//Exercise 2
 	function changeAllColours(){
 		allBorders.forEach(myFunc)	
 
@@ -46,13 +46,14 @@ window.onload= function(){
 		if(outOfBounds) 
 		{
 			outOfBounds = false;
-			alert('You Lose! Click the "S" to reset and play again.');
+			alert('you lose');
 			for (var i = 0; i < allBorders.length - 1; i++) {
 			allBorders[i].className += " youlose";
 			}
 		}
 	}
 
+	//Exercise4
 
 
 
@@ -76,7 +77,8 @@ window.onload= function(){
 
 
 
-	
+
+
 }
 
 
