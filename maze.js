@@ -3,7 +3,7 @@ window.onload= function(){
 	x.onmouseover = changeColour;
 	var b=document.querySelectorAll('.boundary');
 	var i;
-	b.onmouseover= changeAllColours;
+	b.mouseover= changeAllColours;
 	
 	
 	function changeColour(){
