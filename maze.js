@@ -1,22 +1,39 @@
 window.onload= function(){
-	var x= document.getElementById("boundary1");
-	x.onmouseover = changeColour;
-	var b=document.querySelectorAll('.boundary');
-	var i;
-	b.mouseover= changeAllColours;
+	var border1= document.getElementById("boundary1");
+	border1.onmouseover = changeColour;
+	let allBorders=document.querySelectorAll(".boundary");
 	
+	changeAllColours();
 	
+	//changes border 1
 	function changeColour(){
-		x.classList.add("youlose");
+		border1.classList.add("youlose");
 		alert("you lose");	
 	}
 	
+	//changesallborders upon contact
 	function changeAllColours(){
-		for(i=0; i < b.length; i++){
-			b[i].classList.add("youlose");
-			alert("you lose")
+		allBorders.forEach(myFunc)	
+
+		}
+
+	function myFunc(item, index){
+		item.onmouseover= function(){
+			item.classList.add("youlose");
+			alert("you lose");
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
