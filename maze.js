@@ -16,9 +16,6 @@ window.onload= function(){
 
 	var statusOfGame= document.getElementById("status");
 
-
-
-
 	
 	//Exercise 1
 	function changeColour(){
@@ -28,8 +25,8 @@ window.onload= function(){
 	
 	//Exercise 2
 	function changeAllColours(){
-		allBorders.forEach(myFunc)	
-
+		allBorders.forEach(myFunc)
+		outOfBounds= true;
 		}
 
 	function myFunc(item, index){
@@ -41,9 +38,14 @@ window.onload= function(){
 
 
 	//ex3
+	let xtra = changeAllColours();
 
 	function youWin(){
-		statusOfGame.innerText='Congratulations You Win';
+		if(!xtra){
+			statusOfGame.innerText='Congratulations You Win';
+		}else{
+			statusOfGame.innerText='Uh oh... You lose';
+		}
 		
 	}
 
@@ -54,10 +56,10 @@ window.onload= function(){
 	}
 
 
-	//ex5
+}	//ex5
 
 
-}
+
 
 
 
