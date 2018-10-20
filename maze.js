@@ -8,8 +8,14 @@ window.onload= function(){
 
 	endOfMaze.onmouseover= youWin;
 
-	var win = true;
-	var outOfBounds = true;
+	var win = false;
+	var outOfBounds = false;
+
+	let startOfMaze = document.getElementById("start");
+	startOfMaze.onclick = restartGame;
+
+	var statusOfGame= document.getElementById("status");
+
 
 
 
@@ -17,7 +23,7 @@ window.onload= function(){
 	//Exercise 1
 	function changeColour(){
 		border1.classList.add("youlose");
-		alert("you lose");	
+		statusOfGame.innerText='Uh oh... You lose';	
 	}
 	
 	//Exercise 2
@@ -29,7 +35,7 @@ window.onload= function(){
 	function myFunc(item, index){
 		item.onmouseover= function(){
 			item.classList.add("youlose");
-			alert("you lose");
+			statusOfGame.innerText='Uh oh... You lose';
 		}
 	}
 
@@ -37,46 +43,18 @@ window.onload= function(){
 	//ex3
 
 	function youWin(){
-		alert("you Win")
+		statusOfGame.innerText='Congratulations You Win';
+		
 	}
 
 
-	function overBounds(){ 
-	if (win){ 
-		if(outOfBounds) 
-		{
-			outOfBounds = false;
-			alert('you lose');
-			for (var i = 0; i < allBorders.length - 1; i++) {
-			allBorders[i].className += " youlose";
-			}
-		}
+	//ex4
+	function restartGame(){
+		statusOfGame.innerText='Please click on "S" to restart the game';		
 	}
 
-	//Exercise4
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	//ex5
 
 
 }
@@ -87,12 +65,5 @@ window.onload= function(){
 
 
 
-
-
-
-
-
-
-}
 
 
