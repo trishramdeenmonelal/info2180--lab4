@@ -26,7 +26,7 @@ window.onload= function(){
 	//Exercise 2
 	function changeAllColours(){
 		allBorders.forEach(myFunc)
-		outOfBounds= true;
+		//outOfBounds= true;
 		}
 
 	function myFunc(item, index){
@@ -37,12 +37,12 @@ window.onload= function(){
 	}
 
 
-	//ex3
+	//Exercise 3
 	let xtra = changeAllColours();
 
 	function youWin(){
 		if(!xtra){
-			statusOfGame.innerText='Congratulations You Win';
+			statusOfGame.innerText='Congratulations You Win. Please press "S" to restart';
 		}else{
 			statusOfGame.innerText='Uh oh... You lose';
 		}
@@ -50,22 +50,12 @@ window.onload= function(){
 	}
 
 
-	//ex4
+	//Exercise 4
 	function restartGame(){
-		statusOfGame.innerText='Please click on "S" to restart the game';		
+		for(var x = 0; x < allBorders.length; x++ )	{
+			allBorders[i].className= "boundary" ;
+		}
 	}
 
 
 }	//ex5
-
-
-
-
-
-
-
-
-
-
-
-
