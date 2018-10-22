@@ -1,61 +1,28 @@
-window.onload= function(){
-	var border1= document.getElementById("boundary1");
-	border1.onmouseover = changeColour;
-	let allBorders=document.querySelectorAll(".boundary");
+lost = false;
+
+window.onload = function() {
 	
-	changeAllColours();
-	let endOfMaze = document.getElementById("end");
+	var allBorders = document.querySelectorAll("#maze div.boundary");
+    for (var x = 0; x < allBorders.length; x++) {
+        allBorders[x].onmouseover = youLose;
+	}
 
-	endOfMaze.onmouseover= youWin;
+	let statusOfGame = document.getElementById("status");
 
-	var win = false;
-	var outOfBounds = false;
 
-	let startOfMaze = document.getElementById("start");
-	startOfMaze.onclick = restartGame;
 
-	var statusOfGame= document.getElementById("status");
 
+
+
+}
+
+function youLose(){
+	lost = true;
+	var allBorders = document.querySelectorAll("#maze div.boundary");
+	for (var x = 0; x < allBorders.length; x++) {
+		allBorders[x].classList.add("youlose");
+
+	}
+	statusOfGame.innerHTML = "You Lose. Better Luck Next Time..";
 	
-	//Exercise 1
-	function changeColour(){
-		border1.classList.add("youlose");
-		statusOfGame.innerText='Uh oh... You lose';	
-	}
-	
-	//Exercise 2
-	function changeAllColours(){
-		allBorders.forEach(myFunc)
-		//outOfBounds= true;
-		}
-
-	function myFunc(item, index){
-		item.onmouseover= function(){
-			item.classList.add("youlose");
-			statusOfGame.innerText='Uh oh... You lose';
-		}
-	}
-
-
-	//Exercise 3
-	let xtra = changeAllColours();
-
-	function youWin(){
-		if(!xtra){
-			statusOfGame.innerText='Congratulations You Win. Please press "S" to restart';
-		}else{
-			statusOfGame.innerText='Uh oh... You lose';
-		}
-		
-	}
-
-
-	//Exercise 4
-	function restartGame(){
-		for(var x = 0; x < allBorders.length; x++ )	{
-			allBorders[i].className= "boundary" ;
-		}
-	}
-
-
-}	//ex5
+}
