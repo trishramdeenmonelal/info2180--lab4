@@ -1,20 +1,24 @@
-lost = false;
+win = false;
 
 window.onload = function() {
 	
-	var allBorders = document.querySelectorAll("#maze div.boundary");
-    for (var x = 0; x < allBorders.length; x++) {
+	let allBorders = document.querySelectorAll("#maze div.boundary");
+    for (let x = 0; x < allBorders.length; x++) {
         allBorders[x].onmouseover = youLose;
 	}
 
-	//let statusOfGame = document.getElementById("status");
+	let statusOfGame = document.getElementById("status");
 
-	var mazeEnd = document.getElementById("end");
+	let mazeEnd = document.getElementById("end");
 	mazeEnd.addEventListener('mouseover', youWin);
 
 
 	var startMaze = document.getElementById("start");
-	startMaze.addEventListener('onclick', restartMaze);
+	startMaze.addEventListener('click', restartMaze);
+
+	//Ex6
+	let leaveMaze = document.getElementById("maze");
+	leaveMaze.addEventListener('mouseleave', youLose);
 
 
 
@@ -25,32 +29,34 @@ window.onload = function() {
 
 //Exercise 1 and 2
 function youLose(){
-	lost = true;
+	win = true;
 	var allBorders = document.querySelectorAll("#maze div.boundary");
 	for (var x = 0; x < allBorders.length; x++) {
 		allBorders[x].classList.add("youlose");
 
 	}
-	document.getElementById("status").innerHTML = "You Lose. Better Luck Next Time..";
+	document.getElementById("status").innerHTML = "Uh ohh :/ you lose!! Please Click on 'S' to restart the maze";
 	
 }
 
 
 //Exercise 3
 function youWin(){
-	if (!lost){
-		
+	if (!win){
+		document.getElementById("status").innerHTML = "Congratulations!! You Win!! :D " ;
 	}	
-	document.getElementById("status").innerHTML = "You Win!!";
+	
 }
 
 //Exercise 4
 
 function restartMaze(){
-	lost = false;
-	//document.getElementById("status").innerHTML = "Find Your Way To The End!!";
+	win = false;
+	document.getElementById("status").innerHTML = "Please guide the cursor along the white path to 'E'.. WITHOUT touching the boundaries";
 	var allBorders = document.querySelectorAll("#maze div.boundary");
 	for (var x = 0; x < allBorders.length; x++) {
 		allBorders[x].classList.remove("youlose");
 	}
+
+	
 }
